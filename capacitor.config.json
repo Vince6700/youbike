@@ -1,0 +1,7 @@
+{
+  "appId": "be.youbike.app",
+  "appName": "youBike",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build"
+}

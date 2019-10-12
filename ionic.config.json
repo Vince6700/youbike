@@ -1,5 +1,7 @@
 {
   "name": "youBike",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "react"
 }
