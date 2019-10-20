@@ -11,9 +11,6 @@
 # production
 /build
 
-# ios
-/ios
-
 # misc
 .DS_Store
 .env.local
