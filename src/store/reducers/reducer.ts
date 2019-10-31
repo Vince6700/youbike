@@ -1,6 +1,6 @@
 import {FETCH_DATA, RECEIVED_DATA, RECEIVED_ERROR} from '../actions/index';
 
-const initialState = { events: [{'test':'test'}] }
+const initialState = { events: [] }
 
 const reducer = (state = initialState, action = { type : '', events : []}) => {
     switch (action.type) {
