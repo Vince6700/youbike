@@ -1,10 +1,8 @@
-import {FETCH_DATA, RECEIVED_DATA, RECEIVED_ERROR} from '../actions/index';
-
 const initialState = { events: [] }
 
 const reducer = (state = initialState, action = { type : '', events : []}) => {
     switch (action.type) {
-        case FETCH_DATA: {
+        case 'FETCH_DATA': {
             return {
                 ...state,
                 isFetching: true,
@@ -12,7 +10,7 @@ const reducer = (state = initialState, action = { type : '', events : []}) => {
             }
         }
 
-        case RECEIVED_DATA: {
+        case 'RECEIVED_DATA': {
             return {
                 ...state,
                 events: action.events,
@@ -20,7 +18,7 @@ const reducer = (state = initialState, action = { type : '', events : []}) => {
                 isError: false,
             }
         }
-        case RECEIVED_ERROR: {
+        case 'RECEIVED_ERROR': {
             return {
                 ...state,
                 isFetching: false,
