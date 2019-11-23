@@ -6,8 +6,10 @@ import reducer from './reducers/reducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const rootReducer = combineReducers ({
-    reducer: reducer,
+    reducer,
 });
+
+export type AppState = ReturnType<typeof rootReducer>;
 
 const middleware = [
     thunk,

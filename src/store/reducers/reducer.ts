@@ -1,6 +1,8 @@
-const initialState = { events: [] }
+import { Events } from '../types/types';
 
-const reducer = (state = initialState, action = { type : '', events : []}) => {
+const initialState: Events = { events: [], isError: false, isFetching: false }
+
+const eventsReducer = (state = initialState, action = { type : '', events : []}) => {
     switch (action.type) {
         case 'FETCH_DATA': {
             return {
@@ -30,4 +32,4 @@ const reducer = (state = initialState, action = { type : '', events : []}) => {
     }
 }
 
-export default reducer;
+export default eventsReducer;
