@@ -1,10 +1,14 @@
 import { Events } from '../types/types';
+import { FETCH_DATA, RECEIVED_DATA, RECEIVED_ERROR} from '../types/types';
 
 const initialState: Events = { events: [], isError: false, isFetching: false }
 
-const eventsReducer = (state = initialState, action = { type : '', events : []}) => {
+const eventsReducer = (
+        state = initialState, 
+        action = { type : '', payload : []}
+    ) => {
     switch (action.type) {
-        case 'FETCH_DATA': {
+        case FETCH_DATA: {
             return {
                 ...state,
                 isFetching: true,
@@ -12,15 +16,15 @@ const eventsReducer = (state = initialState, action = { type : '', events : []})
             }
         }
 
-        case 'RECEIVED_DATA': {
+        case RECEIVED_DATA: {
             return {
                 ...state,
-                events: action.events,
+                events: action.payload,
                 isFetching: false,
                 isError: false,
             }
         }
-        case 'RECEIVED_ERROR': {
+        case RECEIVED_ERROR: {
             return {
                 ...state,
                 isFetching: false,

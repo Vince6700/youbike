@@ -1,16 +1,17 @@
 import store from '../index'
+import { FETCH_DATA, RECEIVED_DATA, RECEIVED_ERROR, Event } from '../types/types';
 
 export const fetchData = () => ({
-    type : 'FETCH_DATA',
+    type : FETCH_DATA,
 });
 
-export const receivedData = (events : []) => ({
-    type : 'RECEIVED_DATA',
-    events 
+export const receivedData = (events : Event) => ({
+    type : RECEIVED_DATA,
+    payload: events 
 });
 
 export const receiveError = () => ({
-    type : 'RECEIVED_ERROR'
+    type : RECEIVED_ERROR
 });
 
 export const thunkActionCreator = () => {

@@ -26,3 +26,22 @@ export interface Events {
     isError: boolean,
     isFetching: boolean,
 }
+
+export const FETCH_DATA = 'FETCH_DATA';
+export const RECEIVED_DATA = 'RECEIVED_DATA';
+export const RECEIVED_ERROR = 'RECEIVED_ERROR';
+
+interface fetchData {
+    type : typeof FETCH_DATA;
+}
+
+interface receivedData {
+    type: typeof RECEIVED_DATA;
+    payload: Event[];
+}
+
+interface receiveError {
+    type: typeof RECEIVED_ERROR;
+}
+
+export type EventsActionTypes = fetchData | receivedData | receiveError;
