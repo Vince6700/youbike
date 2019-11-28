@@ -90,7 +90,7 @@ class HomePage extends React.Component<{dispatch : any}> {
 
 const mapStateToProps = (state: AppState) => {
     return {
-        eventsReducer: state.reducer
+        eventsReducer: state
     }
 }
 

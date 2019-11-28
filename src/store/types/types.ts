@@ -33,15 +33,21 @@ export const RECEIVED_ERROR = 'RECEIVED_ERROR';
 
 interface fetchData {
     type : typeof FETCH_DATA;
+    isFetching: boolean,
+    isError: boolean,
 }
 
 interface receivedData {
     type: typeof RECEIVED_DATA;
     payload: Event[];
+    isFetching: boolean,
+    isError: boolean,
 }
 
 interface receiveError {
     type: typeof RECEIVED_ERROR;
+    isFetching: boolean,
+    isError: boolean,
 }
 
 export type EventsActionTypes = fetchData | receivedData | receiveError;

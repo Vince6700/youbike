@@ -1,12 +1,12 @@
-import { Events } from '../types/types';
+import { Events, EventsActionTypes } from '../types/types';
 import { FETCH_DATA, RECEIVED_DATA, RECEIVED_ERROR} from '../types/types';
 
 const initialState: Events = { events: [], isError: false, isFetching: false }
 
-const eventsReducer = (
+export const eventsReducer = (
         state = initialState, 
-        action = { type : '', payload : []}
-    ) => {
+        action : EventsActionTypes
+    ) : Events => {
     switch (action.type) {
         case FETCH_DATA: {
             return {
@@ -35,5 +35,3 @@ const eventsReducer = (
             return state;
     }
 }
-
-export default eventsReducer;

@@ -2,11 +2,11 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 //middleware
 import thunk from 'redux-thunk';
 // import stores
-import reducer from './reducers/reducer';
+import {eventsReducer} from './reducers/reducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const rootReducer = combineReducers ({
-    reducer,
+    eventsReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;
