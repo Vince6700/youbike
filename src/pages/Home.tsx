@@ -22,7 +22,6 @@ import React from 'react';
 import './Home.css';
 import { connect } from 'react-redux';
 import { thunkActionCreator } from '../store/actions';
-import { Events } from '../store/types/types';
 import { AppState } from '../store';
 
 class HomePage extends React.Component<{dispatch : any}> {
