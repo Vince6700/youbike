@@ -25,9 +25,6 @@ import { thunkActionCreator } from '../store/actions';
 import { AppState } from '../store';
 
 class HomePage extends React.Component<{dispatch : any}> {
-    constructor(props : any) {
-        super(props);
-    }
 
     componentDidMount(){
         this.props.dispatch(thunkActionCreator());
@@ -89,7 +86,7 @@ class HomePage extends React.Component<{dispatch : any}> {
 
 const mapStateToProps = (state: AppState) => {
     return {
-        eventsReducer: state
+        store: state
     }
 }
 
