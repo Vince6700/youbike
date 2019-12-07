@@ -19,7 +19,7 @@ import {
   } from '@ionic/react';
 import { book, build, colorFill, grid } from 'ionicons/icons';
 import React from 'react';
-import './Home.css';
+import './Home.scss';
 import { connect } from 'react-redux';
 import { thunkActionCreator } from '../store/actions';
 import { AppState } from '../store';
@@ -38,7 +38,7 @@ class HomePage extends React.Component<{dispatch : any}> {
                     <IonButtons slot="start">
                     <IonMenuButton />
                     </IonButtons>
-                    <IonTitle>Home</IonTitle>
+                    <IonTitle size='large' className='brand-title'>youbike</IonTitle>
                 </IonToolbar>
                 </IonHeader>
                 <IonContent>
