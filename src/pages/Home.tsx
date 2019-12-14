@@ -1,10 +1,5 @@
 import {
-    IonButtons,
-    IonCard,
-    IonCardContent,
-    IonCardHeader,
-    IonCardSubtitle,
-    IonCardTitle,
+    IonButtons, IonCard, IonCardHeader, IonCardTitle,
     IonContent,
     IonHeader,
     IonIcon,
@@ -34,37 +29,40 @@ class HomePage extends React.Component<{dispatch : any}> {
         return (
             <IonPage>
                 <IonHeader>
-                <IonToolbar>
-                    <IonButtons slot="start">
-                    <IonMenuButton />
-                    </IonButtons>
-                    <IonTitle className='brand-title'>
-                        <img src='assets/images/logo-long.png' alt='logo' className="rand-title__logo"/>
-                    </IonTitle>
-                </IonToolbar>
+                    <IonToolbar>
+                        <IonButtons slot="start">
+                        <IonMenuButton />
+                        </IonButtons>
+                        <IonTitle className='brand-title'>
+                            <img src='assets/images/logo-long.png' alt='logo' className="rand-title__logo"/>
+                        </IonTitle>
+                    </IonToolbar>
                 </IonHeader>
                 <IonContent>
-                <IonList lines="none">
-                    <IonListHeader>
-                        <IonLabel>Prochaines organisations</IonLabel>
-                    </IonListHeader>
-                    <IonItem href="https://ionicframework.com/docs/" target="_blank">
-                    <IonIcon slot="start" color="medium" icon={book} />
-                    <IonLabel>Ionic Documentation</IonLabel>
+                    <IonItem color='primary'>
+                        <IonLabel className={'ion-text-center'}>Prochaines Organisations</IonLabel>
                     </IonItem>
-                    <IonItem href="https://ionicframework.com/docs/building/scaffolding" target="_blank">
-                    <IonIcon slot="start" color="medium" icon={build} />
-                    <IonLabel>Scaffold Out Your App</IonLabel>
-                    </IonItem>
-                    <IonItem href="https://ionicframework.com/docs/layout/structure" target="_blank">
-                    <IonIcon slot="start" color="medium" icon={grid} />
-                    <IonLabel>Change Your App Layout</IonLabel>
-                    </IonItem>
-                    <IonItem href="https://ionicframework.com/docs/theming/basics" target="_blank">
-                    <IonIcon slot="start" color="medium" icon={colorFill} />
-                    <IonLabel>Theme Your App</IonLabel>
-                    </IonItem>
-                </IonList>
+                    <IonList lines="full">
+                        <IonListHeader>
+                            <IonLabel>Prochaines organisations</IonLabel>
+                        </IonListHeader>
+                        <IonItem href="https://ionicframework.com/docs/" target="_blank">
+                        <IonIcon slot="start" color="medium" icon={book} />
+                        <IonLabel>Ionic Documentation</IonLabel>
+                        </IonItem>
+                        <IonItem href="https://ionicframework.com/docs/building/scaffolding" target="_blank">
+                        <IonIcon slot="start" color="medium" icon={build} />
+                        <IonLabel>Scaffold Out Your App</IonLabel>
+                        </IonItem>
+                        <IonItem href="https://ionicframework.com/docs/layout/structure" target="_blank">
+                        <IonIcon slot="start" color="medium" icon={grid} />
+                        <IonLabel>Change Your App Layout</IonLabel>
+                        </IonItem>
+                        <IonItem href="https://ionicframework.com/docs/theming/basics" target="_blank">
+                        <IonIcon slot="start" color="medium" icon={colorFill} />
+                        <IonLabel>Theme Your App</IonLabel>
+                        </IonItem>
+                    </IonList>
                 </IonContent>
             </IonPage>
         );
