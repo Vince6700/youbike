@@ -1,23 +1,23 @@
 import {
-  IonButtons,
-  IonCard,
-  IonCardContent,
-  IonCardHeader,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonContent,
-  IonHeader,
-  IonIcon,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonListHeader,
-  IonMenuButton,
-  IonPage,
-  IonTitle,
-  IonToolbar
-  } from '@ionic/react';
-import { book, build, colorFill, grid } from 'ionicons/icons';
+    IonButtons,
+    IonCard,
+    IonCardContent,
+    IonCardHeader,
+    IonCardSubtitle,
+    IonCardTitle,
+    IonContent,
+    IonHeader,
+    IonIcon,
+    IonItem,
+    IonLabel,
+    IonList,
+    IonListHeader,
+    IonMenuButton,
+    IonPage,
+    IonTitle,
+    IonToolbar
+} from '@ionic/react';
+import {book, build, colorFill, grid} from 'ionicons/icons';
 import React from 'react';
 import './Home.scss';
 import { connect } from 'react-redux';
@@ -38,27 +38,15 @@ class HomePage extends React.Component<{dispatch : any}> {
                     <IonButtons slot="start">
                     <IonMenuButton />
                     </IonButtons>
-                    <IonTitle size='large' className='brand-title'>youbike</IonTitle>
+                    <IonTitle className='brand-title'>
+                        <img src='assets/images/logo-long.png' alt='logo' className="rand-title__logo"/>
+                    </IonTitle>
                 </IonToolbar>
                 </IonHeader>
                 <IonContent>
-                <IonCard className="welcome-card">
-                    <img src="/assets/shapes.svg" alt=""/>
-                    <IonCardHeader>
-                    <IonCardSubtitle>Get Started</IonCardSubtitle>
-                    <IonCardTitle>Welcome to Ionic</IonCardTitle>
-                    </IonCardHeader>
-                    <IonCardContent>
-                    <p>
-                        Now that your app has been created, you'll want to start building out features and
-                        components. Check out some of the resources below for next steps.
-                    </p>
-                    </IonCardContent>
-                </IonCard>
-        
                 <IonList lines="none">
                     <IonListHeader>
-                    <IonLabel>Resources</IonLabel>
+                        <IonLabel>Prochaines organisations</IonLabel>
                     </IonListHeader>
                     <IonItem href="https://ionicframework.com/docs/" target="_blank">
                     <IonIcon slot="start" color="medium" icon={book} />
