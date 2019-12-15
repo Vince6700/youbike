@@ -1,31 +1,46 @@
 import {
-    IonButtons, IonCard, IonCardHeader, IonCardTitle,
+    IonButtons,
     IonContent,
     IonHeader,
-    IonIcon,
     IonItem,
     IonLabel,
     IonList,
-    IonListHeader,
     IonMenuButton,
     IonPage,
     IonTitle,
     IonToolbar
 } from '@ionic/react';
-import {book, build, colorFill, grid} from 'ionicons/icons';
 import React from 'react';
 import './Home.scss';
 import { connect } from 'react-redux';
 import { thunkActionCreator } from '../store/actions';
 import { AppState } from '../store';
+import FunForTheDay from "../components/FunForTheDay";
+import {Event} from "../store/types/types";
 
-class HomePage extends React.Component<{dispatch : any}> {
+interface Props {
+    dispatch: (fn : any) => {},
+    history: object,
+    location: object,
+    match: object,
+    staticContext: any,
+    store: {
+        eventsReducer: {
+            events : Event[],
+            isError: boolean,
+            isFetching: boolean,
+        }
+    },
+    n: string,
+}
+
+class HomePage extends React.Component<Props> {
 
     componentDidMount(){
         this.props.dispatch(thunkActionCreator());
     }
-
     render() {
+        const {events} = this.props.store.eventsReducer;
         return (
             <IonPage>
                 <IonHeader>
@@ -43,25 +58,7 @@ class HomePage extends React.Component<{dispatch : any}> {
                         <IonLabel className={'ion-text-center'}>Prochaines Organisations</IonLabel>
                     </IonItem>
                     <IonList lines="full">
-                        <IonListHeader>
-                            <IonLabel>Prochaines organisations</IonLabel>
-                        </IonListHeader>
-                        <IonItem href="https://ionicframework.com/docs/" target="_blank">
-                        <IonIcon slot="start" color="medium" icon={book} />
-                        <IonLabel>Ionic Documentation</IonLabel>
-                        </IonItem>
-                        <IonItem href="https://ionicframework.com/docs/building/scaffolding" target="_blank">
-                        <IonIcon slot="start" color="medium" icon={build} />
-                        <IonLabel>Scaffold Out Your App</IonLabel>
-                        </IonItem>
-                        <IonItem href="https://ionicframework.com/docs/layout/structure" target="_blank">
-                        <IonIcon slot="start" color="medium" icon={grid} />
-                        <IonLabel>Change Your App Layout</IonLabel>
-                        </IonItem>
-                        <IonItem href="https://ionicframework.com/docs/theming/basics" target="_blank">
-                        <IonIcon slot="start" color="medium" icon={colorFill} />
-                        <IonLabel>Theme Your App</IonLabel>
-                        </IonItem>
+                        <FunForTheDay/>
                     </IonList>
                 </IonContent>
             </IonPage>
