@@ -41,6 +41,12 @@ class HomePage extends React.Component<Props> {
     }
     render() {
         const {events} = this.props.store.eventsReducer;
+        const renderFunForTheDay = events ?
+            events.map(event => (
+                <FunForTheDay key={event.id}/>
+            )) :
+            <div><p>No events</p></div>;
+
         return (
             <IonPage>
                 <IonHeader>
@@ -58,7 +64,7 @@ class HomePage extends React.Component<Props> {
                         <IonLabel className={'ion-text-center'}>Prochaines Organisations</IonLabel>
                     </IonItem>
                     <IonList lines="full">
-                        <FunForTheDay/>
+                        { renderFunForTheDay }
                     </IonList>
                 </IonContent>
             </IonPage>

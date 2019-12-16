@@ -1,10 +1,10 @@
-import { Events, EventsActionTypes } from '../types/types';
+import { Events, EventsActionTypes, Event } from '../types/types';
 import { FETCH_DATA, RECEIVED_DATA, RECEIVED_ERROR} from '../types/types';
 
 const initialState: Events = { events: [], isError: false, isFetching: false }
 
 export const eventsReducer = (
-        state = initialState, 
+        state : Events = initialState,
         action : EventsActionTypes
     ) : Events => {
     switch (action.type) {
@@ -17,9 +17,11 @@ export const eventsReducer = (
         }
 
         case RECEIVED_DATA: {
+            const nextEvent = action.payload.filter(event => event.jour <= 20200130 && event.jour >= 20191201);
+            console.log(nextEvent);
             return {
                 ...state,
-                events: action.payload,
+                events: nextEvent,
                 isFetching: false,
                 isError: false,
             }
