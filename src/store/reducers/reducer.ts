@@ -18,7 +18,6 @@ export const eventsReducer = (
 
         case RECEIVED_DATA: {
             const nextEvent = action.payload.filter(event => event.jour <= 20200130 && event.jour >= 20191201);
-            console.log(nextEvent);
             return {
                 ...state,
                 events: nextEvent,

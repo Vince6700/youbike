@@ -1,8 +1,16 @@
 import React from 'react';
 import {IonIcon, IonItem, IonLabel, IonListHeader} from "@ionic/react";
 import {book} from "ionicons/icons";
+import {Event} from "../store/types/types";
 
-const FunForTheDay: React.FC = () => {
+
+interface Props {
+    key: number,
+    event: Event
+}
+
+const FunForTheDay: React.FC<Props> = (props: Props) => {
+    console.log(props);
     return (
         <div className={'item wrapper'}>
             <IonListHeader>
