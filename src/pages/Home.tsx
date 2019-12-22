@@ -8,7 +8,8 @@ import {
     IonMenuButton,
     IonPage,
     IonTitle,
-    IonToolbar
+    IonToolbar,
+    IonProgressBar,
 } from '@ionic/react';
 import React from 'react';
 import './Home.scss';
@@ -32,6 +33,7 @@ interface Props {
         }
     },
     n: string,
+    isFetching: boolean
 }
 
 class HomePage extends React.Component<Props> {
@@ -39,6 +41,7 @@ class HomePage extends React.Component<Props> {
     componentDidMount(){
         this.props.dispatch(thunkActionCreator());
     }
+
     render() {
         const {events} = this.props.store.eventsReducer;
         const renderFunForTheDay = events ?
@@ -46,36 +49,43 @@ class HomePage extends React.Component<Props> {
                 <FunForTheDay key={event.id} event={event}/>
             )) :
             <div><p>No events</p></div>;
+        console.log(this.props.isFetching, events.length);
+        const renderLoader = (this.props.isFetching && events.length <= 0) ?
+            <IonProgressBar type="indeterminate" /> : "";
 
         return (
             <IonPage>
                 <IonHeader>
                     <IonToolbar>
                         <IonButtons slot="start">
-                        <IonMenuButton />
+                            <IonMenuButton/>
                         </IonButtons>
                         <IonTitle className='brand-title'>
                             <img src='assets/images/logo-long.png' alt='logo' className="rand-title__logo"/>
                         </IonTitle>
                     </IonToolbar>
                 </IonHeader>
+
+                {renderLoader}
                 <IonContent>
                     <IonItem color='primary'>
                         <IonLabel className={'ion-text-center'}>Prochaines Organisations</IonLabel>
                     </IonItem>
                     <IonList lines="full">
-                        { renderFunForTheDay }
+                        {renderFunForTheDay}
                     </IonList>
                 </IonContent>
             </IonPage>
         );
-
     }
 };
 
 const mapStateToProps = (state: AppState) => {
+    const {eventsReducer} = state;
+    const { isFetching } = eventsReducer;
     return {
-        store: state
+        store: state,
+        isFetching
     }
 }
 

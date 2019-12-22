@@ -10,7 +10,7 @@ interface Props {
 }
 
 const FunForTheDay: React.FC<Props> = (props: Props) => {
-    console.log(props);
+
     return (
         <div className={'item wrapper'}>
             <IonListHeader>
