@@ -66,7 +66,6 @@ class HomePage extends React.Component<Props> {
                         </IonTitle>
                     </IonToolbar>
                 </IonHeader>
-
                 {renderLoader}
                 <IonContent>
                     <IonItem color='primary'>
