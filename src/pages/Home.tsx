@@ -44,12 +44,13 @@ class HomePage extends React.Component<Props> {
 
     render() {
         const {events} = this.props.store.eventsReducer;
+
         const renderFunForTheDay = events ?
             events.map((event:Event) => (
                 <FunForTheDay key={event.id} event={event}/>
             )) :
             <div><p>No events</p></div>;
-        console.log(this.props.isFetching, events.length);
+
         const renderLoader = (this.props.isFetching && events.length <= 0) ?
             <IonProgressBar type="indeterminate" /> : "";
 

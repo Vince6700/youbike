@@ -17,10 +17,15 @@ export const eventsReducer = (
         }
 
         case RECEIVED_DATA: {
-            const nextEvent = action.payload.filter(event => event.jour <= 20200130 && event.jour >= 20191201);
+            const nextEvents = action.payload.filter(event => event.jour <= 20200130 && event.jour >= 20191201);
+            const sortedNextEvents = nextEvents.sort((a: Event, b:Event) => {
+                const aDate: any = new Date(a.jourStr);
+                const bDate: any = new Date(b.jourStr);
+                return aDate - bDate;
+            });
             return {
                 ...state,
-                events: nextEvent,
+                events: sortedNextEvents,
                 isFetching: false,
                 isError: false,
             }
