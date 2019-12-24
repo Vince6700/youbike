@@ -9,7 +9,7 @@ import {
     IonPage,
     IonTitle,
     IonToolbar,
-    IonProgressBar,
+    IonProgressBar, IonListHeader,
 } from '@ionic/react';
 import React from 'react';
 import './Home.scss';
@@ -46,10 +46,29 @@ class HomePage extends React.Component<Props> {
         const {events} = this.props.store.eventsReducer;
 
         const renderFunForTheDay = events ?
-            events.map((event:Event) => (
-                <FunForTheDay key={event.id} event={event}/>
-            )) :
-            <div><p>No events</p></div>;
+            events.map((event:Event, index:number, events:Event[]) => {
+                if (
+                    index === 0 ||
+                    (index === 1 && event.jourStr !== events[index - 1].jourStr) ||
+                    ((index > 1 && events[index + 1]) && event.jourStr !== events[index + 1].jourStr) ||
+                    (!events[index +1] && event.jourStr !== events[index - 1].jourStr)
+                ) {
+                    return (
+                        <div key={index}>
+                            <IonListHeader>
+                                <IonLabel>
+                                    {event.jourStr}
+                                </IonLabel>
+                            </IonListHeader>
+                            <FunForTheDay key={event.id} event={event}/>
+                        </div>
+                    )
+                } else {
+                    return (<FunForTheDay key={event.id} event={event}/>)
+                }
+            })
+            :
+            (<div><p>No events</p></div>);
 
         const renderLoader = (this.props.isFetching && events.length <= 0) ?
             <IonProgressBar type="indeterminate" /> : "";

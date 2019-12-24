@@ -12,15 +12,10 @@ interface Props {
 const FunForTheDay: React.FC<Props> = (props: Props) => {
 
     return (
-        <div className={'item wrapper'}>
-            <IonListHeader>
-                <IonLabel>Prochaines organisations</IonLabel>
-            </IonListHeader>
-            <IonItem href="https://ionicframework.com/docs/" target="_blank">
-                <IonIcon slot="start" color="medium" icon={book} />
-                <IonLabel>Ionic Documentation</IonLabel>
-            </IonItem>
-        </div>
+        <IonItem href="https://ionicframework.com/docs/" target="_blank">
+            <IonIcon slot="start" color="medium" icon={book} />
+            <IonLabel>Ionic Documentation</IonLabel>
+        </IonItem>
     );
 }
 

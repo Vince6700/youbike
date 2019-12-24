@@ -1,5 +1,5 @@
-import { Events, EventsActionTypes, Event } from '../types/types';
-import { FETCH_DATA, RECEIVED_DATA, RECEIVED_ERROR} from '../types/types';
+import {Events, EventsActionTypes, Event} from '../types/types';
+import {FETCH_DATA, RECEIVED_DATA, RECEIVED_ERROR} from '../types/types';
 import {eventsOfTheMonth, sortEvents} from "../../helpers/helpers";
 
 const initialState: Events = { events: [], isError: false, isFetching: false }
