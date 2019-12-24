@@ -11,3 +11,21 @@
 ion-list-header {
   background-color: var(--ion-color-light-tint);
 }
+
+ion-item {
+  .flags {
+    max-width: 2em;
+  }
+  .event-label {
+    padding-left: .8rem;
+  }
+}
+
+
+.event-tags {
+  display: flex;
+  max-width: 25%;
+  ion-img {
+    max-width: 2rem;
+  }
+}
