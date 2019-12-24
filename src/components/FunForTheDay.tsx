@@ -1,6 +1,5 @@
 import React from 'react';
-import {IonIcon, IonItem, IonLabel, IonListHeader} from "@ionic/react";
-import {book} from "ionicons/icons";
+import {IonImg, IonItem, IonLabel} from "@ionic/react";
 import {Event} from "../store/types/types";
 
 
@@ -10,11 +9,17 @@ interface Props {
 }
 
 const FunForTheDay: React.FC<Props> = (props: Props) => {
+    const {titre, lieu, pays, vtt, cyclo, endurance, marche, nocturne, orientation} = props.event
+    const eventTypeObject = {vtt, cyclo, endurance, marche, nocturne, orientation};
+    const imageSource = '/assets/images/' + pays + '.png';
 
     return (
-        <IonItem href="https://ionicframework.com/docs/" target="_blank">
-            <IonIcon slot="start" color="medium" icon={book} />
-            <IonLabel>Ionic Documentation</IonLabel>
+        <IonItem>
+            <IonImg src={imageSource}/>
+            <IonLabel>
+                {lieu}
+                <p>{titre}</p>
+            </IonLabel>
         </IonItem>
     );
 }

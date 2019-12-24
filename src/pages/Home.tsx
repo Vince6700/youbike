@@ -53,11 +53,13 @@ class HomePage extends React.Component<Props> {
                     ((index > 1 && events[index + 1]) && event.jourStr !== events[index + 1].jourStr) ||
                     (!events[index +1] && event.jourStr !== events[index - 1].jourStr)
                 ) {
+                    const date = new Date(event.jourStr);
+                    const formattedDate = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
                     return (
                         <div key={index}>
                             <IonListHeader>
                                 <IonLabel>
-                                    {event.jourStr}
+                                    {formattedDate}
                                 </IonLabel>
                             </IonListHeader>
                             <FunForTheDay key={event.id} event={event}/>
