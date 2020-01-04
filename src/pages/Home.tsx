@@ -9,7 +9,8 @@ import {
     IonPage,
     IonTitle,
     IonToolbar,
-    IonProgressBar, IonListHeader,
+    IonProgressBar,
+    IonListHeader,
 } from '@ionic/react';
 import React from 'react';
 import './Home.scss';
@@ -23,7 +24,12 @@ interface Props {
     dispatch: (fn : any) => {},
     history: object,
     location: object,
-    match: object,
+    match: {
+        isExact: true,
+        params: object,
+        path: string,
+        url: string,
+    },
     staticContext: any,
     store: {
         eventsReducer: {
@@ -32,7 +38,6 @@ interface Props {
             isFetching: boolean,
         }
     },
-    n: string,
     isFetching: boolean
 }
 
@@ -54,7 +59,9 @@ class HomePage extends React.Component<Props> {
                     (!events[index +1] && event.jourStr !== events[index - 1].jourStr)
                 ) {
                     const date = new Date(event.jourStr);
-                    const formattedDate = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
+                    const formattedDay = (date.getDate() < 10 ? '0' : '') + date.getDate();
+                    const formattedMonth = (date.getMonth() < 10 ? '0' : '') + (date.getMonth() + 1);
+                    const formattedDate = formattedDay + '/' + formattedMonth + '/' + date.getFullYear();
                     return (
                         <div key={index}>
                             <IonListHeader>
@@ -62,11 +69,21 @@ class HomePage extends React.Component<Props> {
                                     {formattedDate}
                                 </IonLabel>
                             </IonListHeader>
-                            <FunForTheDay key={event.id} event={event}/>
+                            <FunForTheDay
+                                key={event.id}
+                                event={event}
+                                routerLink={`${this.props.match.url}/eventDetails/${event.id}`}
+                            />
                         </div>
                     )
                 } else {
-                    return (<FunForTheDay key={event.id} event={event}/>)
+                    return (
+                            <FunForTheDay 
+                                key={event.id}
+                                event={event}
+                                routerLink={`${this.props.match.url}/eventDetails/${event.id}`}
+                            />
+                        )
                 }
             })
             :

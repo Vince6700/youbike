@@ -19,11 +19,10 @@ export const eventsReducer = (
 
         case RECEIVED_DATA: {
             const events = action.payload;
-            const month = (new Date()).getMonth() + 1;
+            const month = (new Date()).getMonth();
             const year = (new Date()).getFullYear();
             const nextEvents = eventsOfTheMonth(events, year,month);
             const sortedNextEvents = sortEvents(nextEvents);
-
             return {
                 ...state,
                 events: sortedNextEvents,

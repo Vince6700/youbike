@@ -6,17 +6,18 @@ import EventTags from "./EventTags";
 
 interface Props {
     key: number,
-    event: Event
+    event: Event,
+    routerLink: string,
 }
 
 const FunForTheDay: React.FC<Props> = (props: Props) => {
-    const {titre, lieu, pays, vtt, cyclo, endurance, marche, nocturne, orientation} = props.event
+    const {titre, lieu, pays, vtt, cyclo, endurance, marche, nocturne, orientation} = props.event;
     const eventTagsObject = {vtt, cyclo, endurance, marche, nocturne, orientation};
     const imageSource = '/assets/images/' + pays + '.png';
 
 
     return (
-        <IonItem>
+        <IonItem routerLink={props.routerLink}>
             <IonImg src={imageSource} className="flags"/>
             <IonLabel className="event-label">
                 {lieu}
