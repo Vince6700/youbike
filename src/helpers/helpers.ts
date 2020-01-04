@@ -10,11 +10,14 @@ export const sortEvents = (events:Event[]) => {
 }
 
 export const eventsOfTheMonth = (events: Event[], year: number, month: number) => {
-    const lastDayOfTheMonth = (new Date(month, year, 0)).getDate();
+    const date = new Date(year, month);
+    const monthFormated = (date.getMonth() < 10 ? '0' : '') + (date.getMonth() + 1);
+    const yearFormated = date.getFullYear();
+    const lastDayOfTheMonth = (new Date(year, month, 0)).getDate();
     const result = events.filter(
         event =>
-            event.jour <= parseInt(`${year}${month}${lastDayOfTheMonth}`) &&
-            event.jour >= parseInt(`${year}${month}01`)
+            event.jour <= parseInt(`${yearFormated}${monthFormated}${lastDayOfTheMonth}`) &&
+            event.jour >= parseInt(`${yearFormated}${monthFormated}01`)
     );
     return result;
 }
